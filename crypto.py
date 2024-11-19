@@ -12,7 +12,7 @@ st.text("***********************************************************************
 # Información 
 expander_bar = st.expander("**Más sobre este trabajo**")
 expander_bar.markdown("""
-*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Procesos ETL, a través de un proceso de web scrapping a la URL https://es.investing.com/crypto/bitcoin
+*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, serecurrió a realizar un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
