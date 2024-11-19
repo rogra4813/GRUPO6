@@ -7,7 +7,7 @@ import requests
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 st.text("*************************************************************************************************************")
-st.text("Web scrapping al URL https://es.investing.com/crypto")
+
 # ---------------------------------#
 # Información 
 expander_bar = st.expander("**Más sobre este trabajo**")
