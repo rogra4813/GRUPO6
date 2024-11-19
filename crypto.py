@@ -60,7 +60,7 @@ def load_data():
     cryptocurrencies = data['data']
 
     Nombre = []
-    Simbolo = []
+    coin_symbol = []
     market_cap = []
     percent_change_1h = []
     percent_change_24h = []
@@ -70,7 +70,7 @@ def load_data():
 
     for crypto in cryptocurrencies:
         Nombre.append(crypto['name'])
-        Simbolo.append(crypto['symbol'])
+        coin_symbol.append(crypto['symbol'])
         price.append(crypto['quote'][currency_price_unit]['price'])
         percent_change_1h.append(crypto['quote'][currency_price_unit]['percent_change_1h'])
         percent_change_24h.append(crypto['quote'][currency_price_unit]['percent_change_24h'])
@@ -79,10 +79,10 @@ def load_data():
         volume_24h.append(crypto['quote'][currency_price_unit]['volume_24h'])
 
     df = pd.DataFrame(
-        columns=['Nombre', 'Simbolo', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
+        columns=['Nombre', 'coin_symbol', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
                  'volume24h'])
     df['Nombre'] = Nombre
-    df['Simbolo'] = Simbolo
+    df['coin_symbol'] = coin_symbol
     df['price'] = price
     df['percentChange1h'] = percent_change_1h
     df['percentChange24h'] = percent_change_24h
