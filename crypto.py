@@ -12,7 +12,7 @@ st.text("***********************************************************************
 # Información 
 expander_bar = st.expander("**Más sobre este trabajo**")
 expander_bar.markdown("""
-*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, se realizazó un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
+*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, se realizó un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
@@ -41,7 +41,7 @@ def load_data():
     # Define the parameters for the API request
     params = {
         'start': '1',
-        'limit': '20',
+        'limit': '10',
         'convert': currency_price_unit  # Use the selected currency unit
     }
 
@@ -96,12 +96,12 @@ df = load_data()
 
 ## Sidebar - Cryptocurrency selections
 sorted_coin = sorted(df['coin_symbol'])
-selected_coin = col1.multiselect('Criptomoneda', sorted_coin, sorted_coin)
+selected_coin = col1.multiselect('Cryptocurrency', sorted_coin, sorted_coin)
 
 df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
 
 ## Sidebar - Number of coins to display
-num_coin = col1.slider('Desplegar el total de cryptos', 1, 20, 20)
+num_coin = col1.slider('Display Top N Coins', 1, 10, 10)
 df_coins = df_selected_coin[:num_coin]
 
 ## Sidebar - Percent change timeframe
@@ -110,9 +110,8 @@ percent_dict = {"7d": 'percentChange7d', "24h": 'percentChange24h', "1h": 'perce
 selected_percent_timeframe = percent_dict[percent_timeframe]
 
 ## Sidebar - Sorting values
-sort_values = col1.selectbox('Ordenar?', ['SI', 'NO'])
+sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
 
-col2.subheader('10 CRIPTOMONEDAS MÁS COMUNES')
-#col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
+col2.subheader('Price Data of Selected Cryptocurrency')
+col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
 col2.dataframe(df_coins)
-
