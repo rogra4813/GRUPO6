@@ -19,7 +19,7 @@ expander_bar.markdown("""
 
 # ---------------------------------#
 # Page layout (continued)
-## Divide page into 3 columns (col1 = sidebar, col2 and col3 = page contents)
+## Divide page into 3 columns (col1 = sidebar, col2 = page contents)
 col1 = st.sidebar
 col2 = st.dataFrame
 
