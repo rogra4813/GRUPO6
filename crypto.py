@@ -7,7 +7,7 @@ import csv
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
-df = df.read_csv('GRUPO6/precios_criptomonedas_incrementales.csv')
+df = df.read_xls('cryptos.xls')
 
 df.dataFrame(df)
 
