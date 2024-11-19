@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pip
-pip.main(["install" , "openpyxl"])
+pip.main(["install" , "openpyxlsx"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
