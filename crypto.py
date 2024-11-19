@@ -79,9 +79,9 @@ def load_data():
         volume_24h.append(crypto['quote'][currency_price_unit]['volume_24h'])
 
     df = pd.DataFrame(
-        columns=['coin_name', 'coin_symbol', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
+        columns=['Nombre', 'coin_symbol', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
                  'volume24h'])
-    df['coin_name'] = coin_name
+    df['Nombre'] = coin_name
     df['coin_symbol'] = coin_symbol
     df['price'] = price
     df['percentChange1h'] = percent_change_1h
