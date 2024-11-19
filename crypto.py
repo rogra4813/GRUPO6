@@ -6,6 +6,6 @@ pip.main(["install", "openpyxl"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
-df = df.read('precios_criptomonedas_incrementales.csv')
+df = df.read_csv('precios_criptomonedas_incrementales.csv')
 
 df.wrtite(df)
