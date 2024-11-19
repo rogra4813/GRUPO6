@@ -38,33 +38,33 @@ def image_to_base64(img_path, output_size=(64, 64)):
             return f"data:image/png;base64,{base64.b64encode(buffered.getvalue()).decode()}"
     return ""
 # If 'Logo' column doesn't exist, create one with path to the logos
-if 'Logo' not in data.columns:
-    output_dir = 'downloaded_logos'
-    data['Logo'] = data['Name'].apply(lambda name: os.path.join(output_dir, f'{name}.png'))
+#if 'Logo' not in data.columns:
+    #output_dir = 'downloaded_logos'
+    #data['Logo'] = data['Name'].apply(lambda name: os.path.join(output_dir, f'{name}.png'))
 
 # Convert image paths to Base64
-data["Logo"] = data["Logo"].apply(image_to_base64)
+#data["Logo"] = data["Logo"].apply(image_to_base64)
 
-image_column = st.column_config.ImageColumn(label="")
-nazev_column = st.column_config.TextColumn(label="Název společnosti")
-market_cap_column = st.column_config.TextColumn(label="Tržní kapitalizace 💬",help="📍**v mld. USD**")
-price_column = st.column_config.TextColumn(label="Cena za 1 akcii 💬", help="📍**Uzavírací cena za předchozí den (v USD)**")
+#image_column = st.column_config.ImageColumn(label="")
+nombre_column = st.column_config.TextColumn(label="Nombre")
+simbolo_column = st.column_config.TextColumn(label="Símbolo")
+precio_column = st.column_config.TextColumn(label="Precio USD.")
 
 # Adjust the index to start from 1 and display only the first 25 companies
 data.reset_index(drop=True, inplace=True)
 data = data.head(25)
 data.index = data.index + 1
 
-data = data[['Logo', 'Name', 'Market Cap', 'Price']]
+data = data[['Nombre', 'Símbolo', 'Precio USD.']]
 
 
 # Display the dataframe
-st.dataframe(data, height=913, column_config={"Logo": image_column,"Name":nazev_column,'Market Cap':market_cap_column,'Price':price_column})
+st.dataframe(data, height=913, column_config={"Nombre":nombre_column,'Símbolo':simbolocolumn,'Precio USD.':precio_column})
 
 import datetime
 
 # Získání aktuálního data
 dnesni_datum = datetime.date.today().strftime("%d.%m.%Y")  # Formátování data na formát DD.MM.YYYY
 
-st.markdown(f'<span style="font-size: 14px">**Zdroj:** companiesmarketcap.com | **Data:** k {dnesni_datum} | **Autor:** lig </span>', unsafe_allow_html=True)
+#st.markdown(f'<span style="font-size: 14px">**Zdroj:** companiesmarketcap.com | **Data:** k {dnesni_datum} | **Autor:** lig </span>', unsafe_allow_html=True)
 
