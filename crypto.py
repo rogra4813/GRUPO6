@@ -5,10 +5,10 @@ import base64
 import io
 import os
 
-st.title('EJERCICIO PRÁCTICO GRUPO 6')
-st.text("*************************************************************************************************************")
-st.text("Web scrapping al URL https://es.investing.com/crypto")
-st.text("Integrantes: Robert Granda, Francisco García, Fabián Quito y Gabriel Salazar")
+#st.title('EJERCICIO PRÁCTICO GRUPO 6')
+#st.text("*************************************************************************************************************")
+#st.text("Web scrapping al URL https://es.investing.com/crypto")
+#st.text("Integrantes: Robert Granda, Francisco García, Fabián Quito y Gabriel Salazar")
 #try:
 #df = pd.read_excel("datos_criptomonedas.csv")
 #st.write(df)
@@ -16,6 +16,10 @@ st.text("Integrantes: Robert Granda, Francisco García, Fabián Quito y Gabriel 
     #st.error("El archivo 'cryptos.xlsx' no se encuentra en el directorio.")
 #except Exception as e:
     #st.error(f"Ocurrió un error al cargar el archivo: {e}")
+
+st.markdown("<h1 style='text-align: center;'EJERCICIO PRÁCTICO 3</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 20px;'>GRUPO 6 </p>", unsafe_allow_html=True)
+st.write("")
 # Load the data
 def load_data():
     df = pd.read_csv("datos_criptomonedas.csv")
