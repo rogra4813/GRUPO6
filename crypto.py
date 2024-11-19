@@ -1,8 +1,9 @@
-!pip install openpyxl
+pip install openpyxl
 
 import streamlit as st
 import pandas as pd
-import pip
+import conda
+
 pip.main(["install" , "openpyxl"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
