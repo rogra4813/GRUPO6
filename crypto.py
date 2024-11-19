@@ -28,15 +28,15 @@ def load_data():
 data = load_data().copy()
 
 # Convert image to Base64
-def image_to_base64(img_path, output_size=(64, 64)):
+#def image_to_base64(img_path, output_size=(64, 64)):
     # Check if the image path exists
-    if os.path.exists(img_path):
-        with Image.open(img_path) as img:
-            img = img.resize(output_size)
-            buffered = io.BytesIO()
-            img.save(buffered, format="PNG")
-            return f"data:image/png;base64,{base64.b64encode(buffered.getvalue()).decode()}"
-    return ""
+    #if os.path.exists(img_path):
+        #with Image.open(img_path) as img:
+            #img = img.resize(output_size)
+            #buffered = io.BytesIO()
+            #img.save(buffered, format="PNG")
+            #return f"data:image/png;base64,{base64.b64encode(buffered.getvalue()).decode()}"
+    #return ""
 # If 'Logo' column doesn't exist, create one with path to the logos
 #if 'Logo' not in data.columns:
     #output_dir = 'downloaded_logos'
@@ -59,7 +59,7 @@ data = data[['Nombre', 'Símbolo', 'Precio USD.']]
 
 
 # Display the dataframe
-st.dataframe(data, height=913, column_config={"Nombre":nombre_column,'Símbolo':simbolocolumn,'Precio USD.':precio_column})
+st.dataframe(data, height=913, column_config={"Nombre":nombre_column,'Símbolo':simbolo_column,'Precio USD.':precio_column})
 
 import datetime
 
