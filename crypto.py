@@ -12,7 +12,7 @@ st.text("***********************************************************************
 # Información 
 expander_bar = st.expander("**Más sobre este trabajo**")
 expander_bar.markdown("""
-*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, serecurrió a realizar un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
+*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, se realizazó un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
@@ -41,7 +41,7 @@ def load_data():
     # Define the parameters for the API request
     params = {
         'start': '1',
-        'limit': '100',
+        'limit': '10',
         'convert': currency_price_unit  # Use the selected currency unit
     }
 
@@ -79,9 +79,9 @@ def load_data():
         volume_24h.append(crypto['quote'][currency_price_unit]['volume_24h'])
 
     df = pd.DataFrame(
-        columns=['Nombre', 'coin_symbol', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
+        columns=['coin_name', 'coin_symbol', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
                  'volume24h'])
-    df['Nombre'] = coin_name
+    df['coin_name'] = coin_name
     df['coin_symbol'] = coin_symbol
     df['price'] = price
     df['percentChange1h'] = percent_change_1h
