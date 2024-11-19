@@ -3,7 +3,7 @@ import pandas as pd
 import csv
 
 import pip
-pip.main(["install", "csv.reader()"])
+pip.main(["install", "openpyxl"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
