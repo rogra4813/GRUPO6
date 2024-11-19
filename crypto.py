@@ -5,7 +5,7 @@ import base64
 #import matplotlib.pyplot as plt
 import requests
 
-st.title('EJERCICIO PRÁCTICO GRUPO 6')
+st.title('EJERCICIO PRÁCTICO ETL')
 st.text("*************************************************************************************************************")
 
 # ---------------------------------#
