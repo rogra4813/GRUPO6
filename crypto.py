@@ -28,7 +28,7 @@ st.set_page_config(layout="wide")
 def get_tesla_data():
     df = pd.read_csv('precios_criptomonedas_incrementales.csv')
     df = df.drop(0)
-    df['volume'] = df['volume'].astype(float)
+    #df['volume'] = df['volume'].astype(float)
     return df
 
 tesla_data = get_tesla_data()
