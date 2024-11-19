@@ -28,7 +28,7 @@ col2, col3 = st.columns((2, 1))
 col1.markdown('''**:violet[Opciones de entrada]**''')
 
 ### Sidebar - Currency price unit
-#currency_price_unit = col1.selectbox('Selecccione la modena', ('USD'))
+currency_price_unit = col1.selectbox('Selecccione la modena', ('USD'))
 
 # Enter your CoinMarketCap API key here
 api_key = '58c2d26e-6b17-4a26-933b-625fef84e704'  # Replace with your actual API key
@@ -96,12 +96,12 @@ df = load_data()
 
 ## Sidebar - Cryptocurrency selections
 sorted_coin = sorted(df['coin_symbol'])
-selected_coin = col1.multiselect('Cryptocurrency', sorted_coin, sorted_coin)
+selected_coin = col1.multiselect('Criptomonedas', sorted_coin, sorted_coin)
 
 df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
 
 ## Sidebar - Number of coins to display
-num_coin = col1.slider('Display Top N Coins', 1, 10, 10)
+num_coin = col1.slider('Desplegar el número de criptos', 1, 10, 10)
 df_coins = df_selected_coin[:num_coin]
 
 ## Sidebar - Percent change timeframe
@@ -110,8 +110,8 @@ percent_dict = {"7d": 'percentChange7d', "24h": 'percentChange24h', "1h": 'perce
 selected_percent_timeframe = percent_dict[percent_timeframe]
 
 ## Sidebar - Sorting values
-sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
+sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 
-col2.subheader('Price Data of Selected Cryptocurrency')
+col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
 col2.dataframe(df_coins)
