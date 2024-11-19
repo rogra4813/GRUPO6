@@ -105,7 +105,7 @@ num_coin = col1.slider('Desplegar el número de criptos', 1, 10, 10)
 df_coins = df_selected_coin[:num_coin]
 
 ## Sidebar - Percent change timeframe
-percent_timeframe = col1.selectbox('Percent change time frame', ['7d', '24h', '1h'])
+percent_timeframe = col1.selectbox('Marco de tiempo, cambio porcentual', ['7d', '24h', '1h'])
 percent_dict = {"7d": 'percentChange7d', "24h": 'percentChange24h', "1h": 'percentChange1h'}
 selected_percent_timeframe = percent_dict[percent_timeframe]
 
