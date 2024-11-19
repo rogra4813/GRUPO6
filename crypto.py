@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import csv
 
-#import pip
-#pip.main(["install", "openpyxl"])
+import pip
+pip.main(["install", "csv.reader()"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
