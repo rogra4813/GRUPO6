@@ -7,7 +7,7 @@ pip.main(["install", "openpyxl"])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
-df = df.read_excel('cryptos.xls')
+df = df.read_excel('cryptos.xlsx')
 
 df.write(df)
 
