@@ -8,7 +8,7 @@ st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
 df = pd.read_excel('cryptos.xlsx')
 
-st.write(df)
+st.write()
 
 #with open('precios_criptomonedas_incrementales.csv', mode='r') as archivo_csv:
    # lector_csv = csv.reader(archivo_csv)
