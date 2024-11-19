@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import io
 
-
-
-
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 st.text("*************************************************************************************************************")
 st.text("Web scrapping al URL https://es.investing.com/crypto")
