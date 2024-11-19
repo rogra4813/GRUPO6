@@ -27,4 +27,15 @@ def load_data():
 
 data = load_data().copy()
 
+# Convert image to Base64
+def image_to_base64(img_path, output_size=(64, 64)):
+    # Check if the image path exists
+    if os.path.exists(img_path):
+        with Image.open(img_path) as img:
+            img = img.resize(output_size)
+            buffered = io.BytesIO()
+            img.save(buffered, format="PNG")
+            return f"data:image/png;base64,{base64.b64encode(buffered.getvalue()).decode()}"
+    return ""
+
 
