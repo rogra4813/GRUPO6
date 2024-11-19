@@ -15,14 +15,7 @@ expander_bar = st.expander("**About**")
 expander_bar.markdown("""
 *:orange[Usage:]* Este ejercicio práctico permite consolidar lo aprendido en Procesos ETL.
 
-*:orange[Created By:]* :blue[Aditya Singh Amber]  from the B.C.A course at Jeevandeep Mahavidyalya.
+*:orange[Created By:]* :blue[GRUPO 6]  from the B.C.A course at Jeevandeep Mahavidyalya.
 """)
 
-try:
-df = pd.read_csv("GRUPO6/datos_criptomonedas.csv")
-st.write(df)
-except FileNotFoundError:
-    st.error("El archivo 'datos_criptomonedas.CSV' no se encuentra en el directorio.")
-except Exception as e:
-    st.error(f"Ocurrió un error al cargar el archivo: {e}")
 
