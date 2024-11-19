@@ -100,6 +100,12 @@ df = load_data()
 num_coin = col1.slider('Display Top N Coins', 1, 100, 100)
 df_coins = df_selected_coin[:num_coin]
 
+## Sidebar - Cryptocurrency selections
+sorted_coin = sorted(df['coin_symbol'])
+selected_coin = col1.multiselect('Cryptocurrency', sorted_coin, sorted_coin)
+
+df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
+
 ## Sidebar - Sorting values
 sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
 col2.subheader('Price Data of Selected Cryptocurrency')
