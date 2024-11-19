@@ -21,7 +21,7 @@ expander_bar.markdown("""
 # Page layout (continued)
 ## Divide page into 3 columns (col1 = sidebar, col2 and col3 = page contents)
 col1 = st.sidebar
-col2, col3 = st.columns((2, 1))
+col2 = st.columns(1)[0]
 
 # ---------------------------------#
 # Sidebar + Main panel
