@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
+st.text("Web scrapping al URL https://es.investing.com/crypto")
 st.text("Integrantes: Robert Granda, Francisco García, Fabián Quito y Gabriel Salazar")
 try:
    df = pd.read_excel('Presupuesto personal1.xlsx')
