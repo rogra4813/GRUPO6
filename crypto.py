@@ -110,7 +110,7 @@ percent_dict = {"7d": 'percentChange7d', "24h": 'percentChange24h', "1h": 'perce
 selected_percent_timeframe = percent_dict[percent_timeframe]
 
 ## Sidebar - Sorting values
-sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
+sort_values = col1.selectbox('Ordenar los valores ?', ['SI', 'NO'])
 
 col2.subheader('10 CRIPTOMONEDAS MÁS COMUNES')
 #col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
