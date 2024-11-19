@@ -16,13 +16,24 @@ expander_bar.markdown("""
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
-# ---------------------------------#
-# Page layout (continued)
-## Divide page into 3 columns (col1 = sidebar, col2 and col3 = page contents)
-col1 = st.sidebar
-col2, col3 = st.columns((2, 1))
 
-# ---------------------------------#
-# Sidebar + Main panel
-col1.markdown('''**:violet[Input Options]**''')
+# Enter your CoinMarketCap API key here
+api_key = '58c2d26e-6b17-4a26-933b-625fef84e704'  # Replace with your actual API key
+
+# Make API requests to CoinMarketCap
+def load_data():
+    # Define the API URL
+    api_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+
+    # Define the parameters for the API request
+    params = {
+        'start': '1',
+        'limit': '100',
+        'convert': currency_price_unit  # Use the selected currency unit
+    }
+
+    # Set the API key in the headers
+    headers = {
+        'X-CMC_PRO_API_KEY': api_key
+    }
 
