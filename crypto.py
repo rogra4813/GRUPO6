@@ -27,8 +27,8 @@ col2, col3 = st.columns((2, 1))
 # Sidebar + Main panel
 col1.markdown('''**:violet[Opciones de entrada]**''')
 
-## Sidebar - Currency price unit
-currency_price_unit = col1.selectbox('Selecccione la modena', ('USD'))
+### Sidebar - Currency price unit
+#currency_price_unit = col1.selectbox('Selecccione la modena', ('USD'))
 
 # Enter your CoinMarketCap API key here
 api_key = '58c2d26e-6b17-4a26-933b-625fef84e704'  # Replace with your actual API key
