@@ -101,7 +101,7 @@ selected_coin = col1.multiselect('Cryptocurrency', sorted_coin, sorted_coin)
 df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
 
 ## Sidebar - Number of coins to display
-num_coin = col1.slider('Display Top N Coins', 1, 100, 100)
+num_coin = col1.slider('Display Top N Coins', 1, 10, 10)
 df_coins = df_selected_coin[:num_coin]
 
 ## Sidebar - Percent change timeframe
@@ -112,7 +112,7 @@ selected_percent_timeframe = percent_dict[percent_timeframe]
 ## Sidebar - Sorting values
 sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
 
-col2.subheader('CRIPTOMONEDAS MÁS COMUNES')
+col2.subheader('10 CRIPTOMONEDAS MÁS COMUNES')
 #col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
 col2.dataframe(df_coins)
 
