@@ -9,7 +9,7 @@ st.title('EJERCICIO PRÁCTICO GRUPO 6')
 
 df = df.read_xls('cryptos.xls')
 
-df.dataFrame(df)
+df.write(df)
 
 #with open('precios_criptomonedas_incrementales.csv', mode='r') as archivo_csv:
    # lector_csv = csv.reader(archivo_csv)
