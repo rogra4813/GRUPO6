@@ -96,7 +96,7 @@ df = load_data()
 
 ## Sidebar - Cryptocurrency selections
 sorted_coin = sorted(df['coin_symbol'])
-selected_coin = col1.multiselect('Cryptocurrency', sorted_coin, sorted_coin)
+selected_coin = col1.multiselect('Criptomoneda', sorted_coin, sorted_coin)
 
 df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
 
