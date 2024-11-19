@@ -10,9 +10,9 @@ st.text("***********************************************************************
 st.text("Web scrapping al URL https://es.investing.com/crypto")
 # ---------------------------------#
 # Información 
-expander_bar = st.expander("**About**")
+expander_bar = st.expander("**Más sobre este trabajo**")
 expander_bar.markdown("""
-*:orange[Detalles:]* Este ejercicio práctico permite consolidar lo aprendido en Procesos ETL.
+*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Procesos ETL, a través de un proceso de web scrapping a la URL https://es.investing.com/crypto/bitcoin
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
