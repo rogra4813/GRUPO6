@@ -112,7 +112,7 @@ selected_percent_timeframe = percent_dict[percent_timeframe]
 ## Sidebar - Sorting values
 sort_values = col1.selectbox('Sort values?', ['Yes', 'No'])
 
-col2.subheader('Price Data of Selected Cryptocurrency')
-col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
+col2.subheader('CRIPTOMONEDAS MÁS COMUNES')
+#col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
 col2.dataframe(df_coins)
 
