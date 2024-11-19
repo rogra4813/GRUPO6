@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import pip
+
+pip.main(["install" , "])
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
 st.text("*************************************************************************************************************")
