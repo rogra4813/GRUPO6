@@ -59,7 +59,7 @@ data = data[['Nombre', 'Símbolo', 'Precio USD.']]
 
 
 # Display the dataframe
-st.dataframe(data, height=913, column_config={"Nombre":nombre_column,'Símbolo':simbolo_column,'Precio USD.':precio_column})
+st.dataframe(data, column_config={"Nombre":nombre_column,"Símbolo":simbolo_column,"Precio USD.":precio_column})
 
 import datetime
 
