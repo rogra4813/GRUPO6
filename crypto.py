@@ -12,6 +12,6 @@ st.title('EJERCICIO PRÁCTICO GRUPO 6')
 #df.wrtite(df)
 
 with open('precios_criptomonedas_incrementales.csv', mode='r') as precios_criptomonedas_incrementales_csv:
-    lector_csv = csv.reader(archivo_csv)
+    lector_csv = csv.reader(precios_criptomonedas_incrementales_csv)
     for fila in lector_csv:
         print(fila)
