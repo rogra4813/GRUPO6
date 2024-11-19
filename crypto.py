@@ -60,7 +60,7 @@ def load_data():
     cryptocurrencies = data['data']
 
     Nombre = []
-    Simbolo = []
+    Símbolo = []
     market_cap = []
     percent_change_1h = []
     percent_change_24h = []
@@ -70,7 +70,7 @@ def load_data():
 
     for crypto in cryptocurrencies:
         Nombre.append(crypto['name'])
-        Simbolo.append(crypto['symbol'])
+        Símbolo.append(crypto['symbol'])
         price.append(crypto['quote'][currency_price_unit]['price'])
         percent_change_1h.append(crypto['quote'][currency_price_unit]['percent_change_1h'])
         percent_change_24h.append(crypto['quote'][currency_price_unit]['percent_change_24h'])
@@ -82,7 +82,7 @@ def load_data():
         columns=['Nombre', 'Símbolo', 'price', 'marketCap', 'percentChange1h', 'percentChange24h', 'percentChange7d',
                  'volume24h'])
     df['Nombre'] = Nombre
-    df['Simbolo'] = Simbolo
+    df['Símbolo'] = Símbolo
     df['price'] = price
     df['percentChange1h'] = percent_change_1h
     df['percentChange24h'] = percent_change_24h
@@ -95,10 +95,10 @@ def load_data():
 df = load_data()
 
 ## Sidebar - Cryptocurrency selections
-sorted_coin = sorted(df['coin_symbol'])
+sorted_coin = sorted(df['Símbolo'])
 selected_coin = col1.multiselect('Criptomonedas', sorted_coin, sorted_coin)
 
-df_selected_coin = df[df['coin_symbol'].isin(selected_coin)]  # Filtering data
+df_selected_coin = df[df['Símbolo'].isin(selected_coin)]  # Filtering data
 
 ## Sidebar - Number of coins to display
 num_coin = col1.slider('Desplegar el número de criptos', 1, 10, 10)
