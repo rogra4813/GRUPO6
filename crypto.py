@@ -1,4 +1,4 @@
-import streamlit as st
+pimport streamlit as st
 import pandas as pd
 
 st.title('EJERCICIO PRÁCTICO GRUPO 6')
