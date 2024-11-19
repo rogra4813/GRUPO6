@@ -19,10 +19,10 @@ expander_bar.markdown("""
 """)
 
 try:
-df = pd.read_csv("datos_criptomonedas.csv")
+df = pd.read_csv("GRUPO6/datos_criptomonedas.csv")
 st.write(df)
 except FileNotFoundError:
-    st.error("El archivo 'cryptos.xlsx' no se encuentra en el directorio.")
+    st.error("El archivo 'datos_criptomonedas.CSV' no se encuentra en el directorio.")
 except Exception as e:
     st.error(f"Ocurrió un error al cargar el archivo: {e}")
 
