@@ -17,8 +17,8 @@ import os
 #except Exception as e:
     #st.error(f"Ocurrió un error al cargar el archivo: {e}")
 
-st.markdown("<h1 style='text-align: center;'EJERCICIO PRÁCTICO 3</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size: 20px;'>GRUPO 6 </p>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>EJERCICIO PRÁCTICO 3</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; '>GRUPO 6 </p>", unsafe_allow_html=True)
 st.write("")
 # Load the data
 def load_data():
