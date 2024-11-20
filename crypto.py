@@ -110,5 +110,4 @@ df_coins = df_selected_coin[:num_coin]
 sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
-#col2.write(f'Data Dimension: {df_selected_coin.shape[0]} rows and {df_selected_coin.shape[1]} columns.')
 col2.dataframe(df_coins)
