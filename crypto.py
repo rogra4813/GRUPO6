@@ -6,7 +6,7 @@ import base64
 import requests
 
 
-st.title('EJERCICIO PRÁCTICO ETL')
+st.title('EXAMEN FINAL DISEÑO DE PROCESOS  ETL')
 st.text("*************************************************************************************************************")
 
 # ---------------------------------#
@@ -22,7 +22,7 @@ expander_bar.markdown("""
 # Page layout (continued)
 ## Divide page into 3 columns (col1 = sidebar, col2 and col3 = page contents)
 col1 = st.sidebar
-col2, col3 = st.columns((2, 1))
+col2 = st.container()  
 
 # ---------------------------------#
 # Sidebar + Main panel
