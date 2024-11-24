@@ -112,12 +112,14 @@ col2.dataframe(df_coins)
 with col2:
     if not df_coins.empty:
         chart = alt.Chart(df_coins).mark_bar().encode(
-            x='Nombre',
-            y='PrecioUSD',
-            color='Nombre',
-            tooltip=['Nombre', 'PrecioUSD']
+            x=alt.X('Nombre:N', title='Criptomonedas', sort='-y'),  # Ordenar por PrecioUSD en eje Y
+            y=alt.Y('PrecioUSD:Q', title=f'Precio en {currency_price_unit}'),
+            color='Nombre:N',
+            tooltip=['Nombre:N', 'PrecioUSD:Q']
         ).properties(
-            title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}'
+            title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}',
+            width=700,  # Aumentar el ancho del gráfico para mejor visualización
+            height=400   # Ajustar la altura si es necesario
         ).interactive()  # Hacer el gráfico interactivo
         
         # Mostrar la gráfica en Streamlit
