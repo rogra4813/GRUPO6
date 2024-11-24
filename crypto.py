@@ -1,9 +1,8 @@
 import streamlit as st
-#from PIL import Image
 import pandas as pd
 import base64
-#import matplotlib.pyplot as plt
 import requests
+import matplotlib.pyplot as plt
 
 st.title('EJERCICIO PRÁCTICO ETL')
 st.text("*************************************************************************************************************")
@@ -112,43 +111,19 @@ sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
+
 # ---------------------------------#
-# Preparing data for Bar plot of % Price change
-col2.subheader('Table of % Price Change',)
-df_change = df_coins[['coin_symbol', 'percentChange1h', 'percentChange24h', 'percentChange7d']].copy()
-df_change.set_index('coin_symbol', inplace=True)
-df_change['positive_percent_change_1h'] = df_change['percentChange1h'] > 0
-df_change['positive_percent_change_24h'] = df_change['percentChange24h'] > 0
-df_change['positive_percent_change_7d'] = df_change['percentChange7d'] > 0
-col2.dataframe(df_change)
-
-# Conditional creation of Bar plot (time frame)
-col3.subheader('Bar plot of % Price Change')
-
-if percent_timeframe == '7d':
-    if sort_values == 'Yes':
-        df_change = df_change.sort_values(by=['percentChange7d'])
-    col3.write('*7 days period*')
-    plt.figure(figsize=(5, 25))
-    plt.subplots_adjust(top=1, bottom=0)
-    df_change['percentChange7d'].plot(kind='barh',
-                                      color=df_change.positive_percent_change_7d.map({True: 'g', False: 'r'}))
-    col3.pyplot(plt)
-elif percent_timeframe == '24h':
-    if sort_values == 'Yes':
-        df_change = df_change.sort_values(by=['percentChange24h'])
-    col3.write('*24 hour period*')
-    plt.figure(figsize=(5, 25))
-    plt.subplots_adjust(top=1, bottom=0)
-    df_change['percentChange24h'].plot(kind='barh',
-                                       color=df_change.positive_percent_change_24h.map({True: 'g', False: 'r'}))
-    col3.pyplot(plt)
-else:
-    if sort_values == 'Yes':
-        df_change = df_change.sort_values(by=['percentChange1h'])
-    col3.write('*1 hour period*')
-    plt.figure(figsize=(5, 25))
-    plt.subplots_adjust(top=1, bottom=0)
-    df_change['percentChange1h'].plot(kind='barh',
-                                      color=df_change.positive_percent_change_1h.map({True: 'g', False: 'r'}))
-    col3.pyplot(plt)
+# Gráfica en la columna 3
+with col3:
+    st.subheader('Gráfica de Precios de Criptomonedas')
+    
+    if not df_coins.empty:
+        plt.figure(figsize=(10, 5))
+        plt.bar(df_coins['Nombre'], df_coins['PrecioUSD'], color='blue')
+        plt.xlabel('Criptomonedas')
+        plt.ylabel(f'Precio en {currency_price_unit}')
+        plt.title('Precios de Criptomonedas Seleccionadas')
+        plt.xticks(rotation=45)
+        
+        # Mostrar la gráfica en Streamlit
+        st.pyplot(plt)
