@@ -4,6 +4,7 @@ import streamlit as st
 #from PIL import Image
 import pandas as pd
 import requests
+import seaborn as sns
 
 
 st.title('EXAMEN FINAL DISEÑO DE PROCESOS  ETL')
@@ -113,11 +114,13 @@ sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
-# Gráfica de precios de criptomonedas seleccionadas en el contenedor principal (col2)
 with col2:
     if not df_coins.empty:
-        fig = px.bar(df_coins, x='Nombre', y='PrecioUSD', title='Precios de Criptomonedas Seleccionadas',
-                     labels={'Nombre': 'Criptomonedas', 'PrecioUSD': f'Precio en {currency_price_unit}'})
-        
-        # Mostrar la gráfica en Streamlit
-        st.plotly_chart(fig)
+        plt.figure(figsize=(10, 5))
+        sns.barplot(x='Nombre', y='PrecioUSD', data=df_coins, color='skyblue')  # Use seaborn barplot
+        plt.xlabel('Criptomonedas')
+        plt.ylabel(f'Precio en {currency_price_unit}')
+        plt.title('Precios de Criptomonedas Seleccionadas')
+        plt.xticks(rotation=45, ha='right') # Adjust rotation and alignment for better readability
+        plt.tight_layout() # Improve layout to prevent labels from overlapping
+        st.pyplot(plt)
