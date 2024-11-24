@@ -113,4 +113,14 @@ sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
-
+with col2:
+    if not df_coins.empty:
+        plt.figure(figsize=(10, 5))
+        plt.bar(df_coins['Nombre'], df_coins['PrecioUSD'], color='blue')
+        plt.xlabel('Criptomonedas')
+        plt.ylabel(f'Precio en {currency_price_unit}')
+        plt.title('Precios de Criptomonedas Seleccionadas')
+        plt.xticks(rotation=45)
+        
+        # Mostrar la gráfica en Streamlit
+        st.pyplot(plt)
