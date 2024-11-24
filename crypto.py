@@ -1,8 +1,10 @@
 import streamlit as st
+#from PIL import Image
 import pandas as pd
 import base64
+#import matplotlib.pyplot as plt
 import requests
-import matplotlib.pyplot as plt
+
 
 st.title('EJERCICIO PRÁCTICO ETL')
 st.text("*************************************************************************************************************")
