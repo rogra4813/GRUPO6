@@ -119,7 +119,7 @@ with col2:
         ).properties(
             title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}',
             width=700,  # Aumentar el ancho del gráfico para mejor visualización
-            height=400   # Ajustar la altura si es necesario
+            height=600   # Ajustar la altura si es necesario
         ).interactive()  # Hacer el gráfico interactivo
         
         # Mostrar la gráfica en Streamlit
