@@ -114,13 +114,4 @@ sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
-with col2:
-    if not df_coins.empty:
-        plt.figure(figsize=(10, 5))
-        sns.barplot(x='Nombre', y='PrecioUSD', data=df_coins, color='skyblue')  # Use seaborn barplot
-        plt.xlabel('Criptomonedas')
-        plt.ylabel(f'Precio en {currency_price_unit}')
-        plt.title('Precios de Criptomonedas Seleccionadas')
-        plt.xticks(rotation=45, ha='right') # Adjust rotation and alignment for better readability
-        plt.tight_layout() # Improve layout to prevent labels from overlapping
-        st.pyplot(plt)
+
