@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
 import requests
-import plotly.express as px  # Importar Plotly Express
+import altair as alt  # Importar Altair
 
-
-st.title('EXAMEN FINAL DISEÑO DE PROCESOS  ETL')
+st.title('EXAMEN FINAL DISEÑO DE PROCESOS ETL')
 st.text("*************************************************************************************************************")
 
 # ---------------------------------#
@@ -17,8 +16,7 @@ expander_bar.markdown("""
 """)
 
 # ---------------------------------#
-# Page layout (continued)
-## Divide page into 3 columns (col1 = sidebar, col2 and col3 = page contents)
+# Page layout
 col1 = st.sidebar
 col2 = st.container()  
 
@@ -27,7 +25,7 @@ col2 = st.container()
 col1.markdown('''**:violet[Opciones de entrada]**''')
 
 ### Sidebar - Currency price unit
-currency_price_unit = col1.selectbox('Selecccione la modena', ('USD'))
+currency_price_unit = col1.selectbox('Seleccione la moneda', ('USD'))
 
 # Enter your CoinMarketCap API key here
 api_key = '58c2d26e-6b17-4a26-933b-625fef84e704'  # Replace with your actual API key
@@ -49,7 +47,7 @@ def load_data():
         'X-CMC_PRO_API_KEY': api_key
     }
 
-# Make the API request
+    # Make the API request
     response = requests.get(api_url, params=params, headers=headers)
 
     # Parse the JSON response
@@ -103,8 +101,6 @@ df_selected_coin = df[df['Símbolo'].isin(selected_coin)]  # Filtering data
 num_coin = col1.slider('Desplegar el número de criptos', 1, 10, 10)
 df_coins = df_selected_coin[:num_coin]
 
-
-
 ## Sidebar - Sorting values
 sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 
@@ -115,8 +111,14 @@ col2.dataframe(df_coins)
 # Gráfica de precios de criptomonedas seleccionadas en el contenedor principal (col2)
 with col2:
     if not df_coins.empty:
-        fig = px.bar(df_coins, x='Nombre', y='PrecioUSD', title='Precios de Criptomonedas Seleccionadas',
-                     labels={'Nombre': 'Criptomonedas', 'PrecioUSD': f'Precio en {currency_price_unit}'})
+        chart = alt.Chart(df_coins).mark_bar().encode(
+            x='Nombre',
+            y='PrecioUSD',
+            color='Nombre',
+            tooltip=['Nombre', 'PrecioUSD']
+        ).properties(
+            title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}'
+        ).interactive()  # Hacer el gráfico interactivo
         
         # Mostrar la gráfica en Streamlit
-        st.plotly_chart(fig)
+        st.altair_chart(chart, use_container_width=True)
