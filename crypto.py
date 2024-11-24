@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
-import altair as alt  # Importar Altair
+import plotly.graph_objects as go  # Importar Plotly para gráficos
 
 st.title('EXAMEN FINAL DISEÑO DE PROCESOS ETL')
 st.text("*************************************************************************************************************")
@@ -108,17 +108,30 @@ col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
 # ---------------------------------#
-# Gráfica de precios de criptomonedas seleccionadas en el contenedor principal (col2)
+# Gráfica de velas japonesas en el contenedor principal (col2)
 with col2:
     if not df_coins.empty:
-        chart = alt.Chart(df_coins).mark_bar().encode(
-            x='Nombre',
-            y='PrecioUSD',
-            color='Nombre',
-            tooltip=['Nombre', 'PrecioUSD']
-        ).properties(
-            title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}'
-        ).interactive()  # Hacer el gráfico interactivo
+        # Para crear un gráfico de velas japonesas, necesitamos datos adicionales.
+        # Asegúrate de tener columnas como 'open', 'high', 'low', y 'close'.
+        
+        # Suponiendo que tienes esos datos en tu DataFrame (esto es solo un ejemplo):
+        # Aquí deberías tener los datos reales para el gráfico de velas.
+        
+        # Ejemplo de datos ficticios (deberías reemplazar esto con tus datos reales)
+        open_prices = [100, 105, 102]
+        high_prices = [110, 108, 107]
+        low_prices = [95, 100, 101]
+        close_prices = [105, 102, 106]
+        
+        fig = go.Figure(data=[go.Candlestick(x=df_coins['Nombre'],
+                                              open=open_prices,
+                                              high=high_prices,
+                                              low=low_prices,
+                                              close=close_prices)])
+        
+        fig.update_layout(title='Gráfico de Velas Japonesas',
+                          xaxis_title='Criptomonedas',
+                          yaxis_title='Precio (USD)')
         
         # Mostrar la gráfica en Streamlit
-        st.altair_chart(chart, use_container_width=True)
+        st.plotly_chart(fig)
