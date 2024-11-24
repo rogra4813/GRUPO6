@@ -112,10 +112,10 @@ col2.dataframe(df_coins)
 with col2:
     if not df_coins.empty:
         chart = alt.Chart(df_coins).mark_bar().encode(
-            x='Criptomoneda',
+            x='Nombre',
             y='PrecioUSD',
             color='Nombre',
-            tooltip=['Criptomoneda', 'PrecioUSD']
+            tooltip=['Nombre', 'PrecioUSD']
         ).properties(
             title=f'Precios de Criptomonedas Seleccionadas en {currency_price_unit}'
         ).interactive()  # Hacer el gráfico interactivo
