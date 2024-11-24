@@ -1,10 +1,7 @@
-
-
 import streamlit as st
-#from PIL import Image
 import pandas as pd
 import requests
-
+import plotly.express as px  # Importar Plotly Express
 
 
 st.title('EXAMEN FINAL DISEÑO DE PROCESOS  ETL')
@@ -14,7 +11,7 @@ st.text("***********************************************************************
 # Información 
 expander_bar = st.expander("**Más sobre este trabajo**")
 expander_bar.markdown("""
-*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, se realizó un web scrapping a la URL https://es.investing.com/crypto/bitcoin, para extraer la información de las cryptos.
+*:orange[Información:]* Este ejercicio práctico permite consolidar lo aprendido en Diseños de procesos ETL en Data Science, para ello, se realizó un web scrapping, para extraer la información de las cryptos.
 
 *:orange[Integrantes:]* :blue[GRUPO 6]  
 """)
@@ -114,4 +111,12 @@ sort_values = col1.selectbox('Ordenar?', ['Si', 'No'])
 col2.subheader('10 CRIPTOMONEDAS MÁS POPULARES')
 col2.dataframe(df_coins)
 
-
+# ---------------------------------#
+# Gráfica de precios de criptomonedas seleccionadas en el contenedor principal (col2)
+with col2:
+    if not df_coins.empty:
+        fig = px.bar(df_coins, x='Nombre', y='PrecioUSD', title='Precios de Criptomonedas Seleccionadas',
+                     labels={'Nombre': 'Criptomonedas', 'PrecioUSD': f'Precio en {currency_price_unit}'})
+        
+        # Mostrar la gráfica en Streamlit
+        st.plotly_chart(fig)
