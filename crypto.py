@@ -123,4 +123,4 @@ with col2:
         plt.xticks(rotation=45)
         
         # Mostrar la gráfica en Streamlit
-        st.pyplot(plt)
+        st.write(plt)
